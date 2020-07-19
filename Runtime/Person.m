@@ -9,10 +9,13 @@
 #import "Person.h"
 
 @interface Person() {
-    struct {
-        char high : 1;
-        char weight : 1;
-        char appearance : 1;
+    union {
+        char bits;
+        struct {
+            char high : 1;
+            char weight : 1;
+            char appearance : 1;
+        };
     } _personLook;
 }
 

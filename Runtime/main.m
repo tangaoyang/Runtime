@@ -17,6 +17,7 @@ int main(int argc, const char * argv[]) {
         person.weight = YES;
         person.appearance = YES;
         NSLog(@"%d", person.high);
+        NSLog(@"%p", person);
         
     }
     return 0;
