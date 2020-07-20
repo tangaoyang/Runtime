@@ -19,6 +19,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%d", person.high);
         NSLog(@"%p", person);
         
+        
     }
     return 0;
 }
