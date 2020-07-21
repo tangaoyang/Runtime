@@ -10,8 +10,19 @@
 
 @implementation Cat
 
-- (void)test {
++ (void)test {
     NSLog(@"%s", __func__);
+}
+
++ (int)test:(int)age {
+//    NSLog(@"%d", age * 2);
+    return age * 2;
+}
+
+- (int)test:(int)age {
+//        NSLog(@"%d", age * 2);
+    NSLog(@"%s", __func__);
+    return age * 2;
 }
 
 @end

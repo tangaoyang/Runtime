@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
 
-- (void)test;
++ (void)test:(int)age;
 //- (void)setHigh: (BOOL)tall;
 //- (void)setWeight: (BOOL)weight;
 //- (void)setAppearance: (BOOL)appearance;

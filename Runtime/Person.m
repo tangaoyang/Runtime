@@ -64,23 +64,43 @@
     return YES;
 }
 
-- (id)forwardingTargetForSelector:(SEL)aSelector {
-    if (aSelector == @selector(test)) {
++ (id)forwardingTargetForSelector:(SEL)aSelector {
+    if (aSelector == @selector(test:)) {
 //        objc_msgSend([[Cat alloc] init], aSelector);
+//        return [[Cat alloc] init];
         return [[Cat alloc] init];
     }
     return [super forwardingTargetForSelector:aSelector];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-    if (aSelector == @selector(test)) {
-        return [NSMethodSignature signatureWithObjCTypes:"v16@0:8"];
+    if (aSelector == @selector(test:)) {
+        //如果这里是nil，就报错
+        return [NSMethodSignature signatureWithObjCTypes:"i20@0:8i16"];
     }
     return [super methodSignatureForSelector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    [anInvocation invokeWithTarget:[[Cat alloc] init] ];
+    
+//    int age;
+//    //参数顺序：receiver，selector，other arguments
+//    [anInvocation getArgument:&age atIndex:2];
+//    NSLog(@"%d", age + 10);
+    
+//    anInvocation.target == person对象
+//    anInvocation.selector == test:
+//    anInvocation的参数：receiver, selector, 15
+    [anInvocation invokeWithTarget:[[Cat alloc] init]];
+    
+    int ret;
+    [anInvocation getReturnValue:&ret];
+    NSLog(@"%d", ret);
+    
+//    [anInvocation invokeWithTarget:[[Cat alloc] init]];
+//    NSLog(@"123");
+//    (什么都不做)
+    
 }
 
 @end
