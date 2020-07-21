@@ -7,46 +7,80 @@
 //
 
 #import "Person.h"
+#import <objc/runtime.h>
+#import "Cat.h"
 
-@interface Person() {
-    union {
-        char bits;
-        struct {
-            char high : 1;
-            char weight : 1;
-            char appearance : 1;
-        };
-    } _personLook;
-}
-
-@end
+//@interface Person() {
+//    union {
+//        char bits;
+//        struct {
+//            char high : 1;
+//            char weight : 1;
+//            char appearance : 1;
+//        };
+//    } _personLook;
+//}
+//
+//@end
 
 @implementation Person
 
-- (void)setHigh: (BOOL)tall {
-    _personLook.high = tall;
+//- (void)setHigh: (BOOL)tall {
+//    _personLook.high = tall;
+//}
+//
+//- (void)setWeight: (BOOL)weight {
+//
+//}
+//
+//- (void)setAppearance: (BOOL)appearance {
+//
+//}
+//
+//- (BOOL)high {
+//    NSLog(@"%d", _personLook.high);
+//    return _personLook.high;
+//}
+//
+//- (BOOL)weight {
+//    return 1;
+//}
+//
+//- (BOOL)appearance {
+//    return 1;
+//}
+
+- (void)other {
+    NSLog(@"%s", __func__);
 }
 
-- (void)setWeight: (BOOL)weight {
-    
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+
+    Method method = class_getInstanceMethod(self, @selector(other));
+
+    if (sel == @selector(test)) {
+//        class_addMethod(self, sel, method_getImplementation(method), method_getTypeEncoding(method));
+    }
+    return YES;
 }
 
-- (void)setAppearance: (BOOL)appearance {
-    
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    if (aSelector == @selector(test)) {
+//        objc_msgSend([[Cat alloc] init], aSelector);
+        return [[Cat alloc] init];
+    }
+    return [super forwardingTargetForSelector:aSelector];
 }
 
-- (BOOL)high {
-    NSLog(@"%d", _personLook.high);
-    return _personLook.high;
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    if (aSelector == @selector(test)) {
+        return [NSMethodSignature signatureWithObjCTypes:"v16@0:8"];
+    }
+    return [super methodSignatureForSelector:aSelector];
 }
 
-- (BOOL)weight {
-    return 1;
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    [anInvocation invokeWithTarget:[[Cat alloc] init] ];
 }
-
-- (BOOL)appearance {
-    return 1;
-}
-
 
 @end

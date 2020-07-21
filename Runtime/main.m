@@ -13,12 +13,12 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         Person *person = [[Person alloc] init];
-        person.high = YES;
-        person.weight = YES;
-        person.appearance = YES;
-        NSLog(@"%d", person.high);
-        NSLog(@"%p", person);
-        
+//        person.high = YES;
+//        person.weight = YES;
+//        person.appearance = YES;
+//        NSLog(@"%d", person.high);
+//        NSLog(@"%p", person);
+        [person test];
         
     }
     return 0;

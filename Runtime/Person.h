@@ -12,12 +12,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
 
-- (void)setHigh: (BOOL)tall;
-- (void)setWeight: (BOOL)weight;
-- (void)setAppearance: (BOOL)appearance;
-- (BOOL)high;
-- (BOOL)weight;
-- (BOOL)appearance;
+- (void)test;
+//- (void)setHigh: (BOOL)tall;
+//- (void)setWeight: (BOOL)weight;
+//- (void)setAppearance: (BOOL)appearance;
+//- (BOOL)high;
+//- (BOOL)weight;
+//- (BOOL)appearance;
 
 @end
 
