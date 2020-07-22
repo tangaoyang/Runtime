@@ -10,45 +10,45 @@
 #import <objc/runtime.h>
 #import "Cat.h"
 
-//@interface Person() {
-//    union {
-//        char bits;
-//        struct {
-//            char high : 1;
-//            char weight : 1;
-//            char appearance : 1;
-//        };
-//    } _personLook;
-//}
-//
-//@end
+@interface Person() {
+    union {
+        char bits;
+        struct {
+            char high : 1;
+            char weight : 1;
+            char appearance : 1;
+        };
+    } _personLook;
+}
+
+@end
 
 @implementation Person
 
-//- (void)setHigh: (BOOL)tall {
-//    _personLook.high = tall;
-//}
-//
-//- (void)setWeight: (BOOL)weight {
-//
-//}
-//
-//- (void)setAppearance: (BOOL)appearance {
-//
-//}
-//
-//- (BOOL)high {
-//    NSLog(@"%d", _personLook.high);
-//    return _personLook.high;
-//}
-//
-//- (BOOL)weight {
-//    return 1;
-//}
-//
-//- (BOOL)appearance {
-//    return 1;
-//}
+- (void)setHigh: (BOOL)tall {
+    _personLook.high = tall;
+}
+
+- (void)setWeight: (BOOL)weight {
+
+}
+
+- (void)setAppearance: (BOOL)appearance {
+
+}
+
+- (BOOL)high {
+    NSLog(@"%d", _personLook.high);
+    return _personLook.high;
+}
+
+- (BOOL)weight {
+    return 1;
+}
+
+- (BOOL)appearance {
+    return 1;
+}
 
 - (void)other {
     NSLog(@"%s", __func__);
@@ -103,17 +103,13 @@
     
 }
 
-+ (BOOL)isKindOfClass:(Class)cls {
-    for(Class tcls = object_getClass((id)self); tcls; tcls = tcls.superclass) {
-        NSLog(@"%@ %@", tcls, cls);
-        if (tcls == cls)
-            return YES;
-    }
-    return NO;
-}
-
-- (void)print {
-    NSLog(@"name is %@", _name);
-}
+//+ (BOOL)isKindOfClass:(Class)cls {
+//    for(Class tcls = object_getClass((id)self); tcls; tcls = tcls.superclass) {
+//        NSLog(@"%@ %@", tcls, cls);
+//        if (tcls == cls)
+//            return YES;
+//    }
+//    return NO;
+//}
 
 @end

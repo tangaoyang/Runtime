@@ -13,15 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Person : NSObject
 
 + (void)test:(int)age;
-//- (void)setHigh: (BOOL)tall;
-//- (void)setWeight: (BOOL)weight;
-//- (void)setAppearance: (BOOL)appearance;
-//- (BOOL)high;
-//- (BOOL)weight;
-//- (BOOL)appearance;
-
-@property (nonatomic, strong) NSString *name;
-- (void)print;
+- (void)setHigh: (BOOL)tall;
+- (void)setWeight: (BOOL)weight;
+- (void)setAppearance: (BOOL)appearance;
+- (BOOL)high;
+- (BOOL)weight;
+- (BOOL)appearance;
+//
+//@property (nonatomic, strong) NSString *name;
+//- (void)print;
 
 @end
 
