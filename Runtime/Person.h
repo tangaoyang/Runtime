@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 //- (BOOL)weight;
 //- (BOOL)appearance;
 
+@property (nonatomic, strong) NSString *name;
+- (void)print;
+
 @end
 
 NS_ASSUME_NONNULL_END

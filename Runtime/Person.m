@@ -103,4 +103,17 @@
     
 }
 
++ (BOOL)isKindOfClass:(Class)cls {
+    for(Class tcls = object_getClass((id)self); tcls; tcls = tcls.superclass) {
+        NSLog(@"%@ %@", tcls, cls);
+        if (tcls == cls)
+            return YES;
+    }
+    return NO;
+}
+
+- (void)print {
+    NSLog(@"name is %@", _name);
+}
+
 @end
