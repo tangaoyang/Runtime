@@ -112,6 +112,12 @@
 //    return NO;
 //}
 
+- (void)print {
+    NSLog(@"%s", __func__);
+}
 
+- (void)run {
+    NSLog(@"%s", __func__);
+}
 
 @end

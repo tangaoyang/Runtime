@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 //- (BOOL)appearance;
 //
 @property (nonatomic, strong) NSString *name;
-//- (void)print;
+- (void)print;
+- (void)run;
 
 @end
 
