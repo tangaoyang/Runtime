@@ -36,7 +36,6 @@ int main(int argc, const char * argv[]) {
         method_exchangeImplementations(runMethod, printMethod);
         [person print];
         
-        
 //        person.high = YES;
 //        person.weight = YES;
 //        person.appearance = YES;
