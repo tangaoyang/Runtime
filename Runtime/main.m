@@ -28,8 +28,10 @@ int main(int argc, const char * argv[]) {
 //        Ivar nameIvar = class_getInstanceVariable([Person class], "_name");
 //        NSLog(@"%s %s", ivar_getName(nameIvar), ivar_getTypeEncoding(nameIvar));
         
-//        Person *person = [[Person alloc] init];
+        Person *person = [[Person alloc] init];
+        NSLog(@"%@ %@ %@", [[Person superclass] superclass], [person superclass], [[[[Person alloc] init] superclass] superclass]);
 //        id __weak a = person;
+        
 //        [person print];
 //        class_replaceMethod([Person class], @selector(print), (IMP)run, "v");
 //        Method runMethod = class_getInstanceMethod([Person class], @selector(run));

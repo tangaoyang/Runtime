@@ -120,4 +120,10 @@
     NSLog(@"%s", __func__);
 }
 
+
++ (Class)superClass {
+    return self -> isa;
+}
+
+
 @end
