@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 //
 @property (nonatomic, strong) NSString *name;
 - (void)print;
-+ (Class)superClass;
 - (void)run;
 
 @end

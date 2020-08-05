@@ -29,7 +29,8 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"%s %s", ivar_getName(nameIvar), ivar_getTypeEncoding(nameIvar));
         
         Person *person = [[Person alloc] init];
-        NSLog(@"%@ %@ %@", [[Person superclass] superclass], [person superclass], [[[[Person alloc] init] superclass] superclass]);
+        [person doSomething];
+//        NSLog(@"%@ %@ %@", [[Person superclass] superclass], [person superclass], [[[[Person alloc] init] superclass] superclass]);
 //        id __weak a = person;
         
 //        [person print];

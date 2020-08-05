@@ -8,7 +8,7 @@
 
 #import "Person.h"
 #import <objc/runtime.h>
-#import "Cat.h"
+#import "TAY.h"
 
 //@interface Person() {
 //    union {
@@ -58,50 +58,46 @@
 //
 //    Method method = class_getInstanceMethod(self, @selector(other));
 //
-//    if (sel == @selector(test)) {
-////        class_addMethod(self, sel, method_getImplementation(method), method_getTypeEncoding(method));
+//    if (sel == @selector(doSomething)) {
+//        class_addMethod(self, sel, method_getImplementation(method), method_getTypeEncoding(method));
+//        return YES;
 //    }
-//    return YES;
+//
+//    return [super resolveInstanceMethod:sel];
+//
 //}
 //
-//+ (id)forwardingTargetForSelector:(SEL)aSelector {
-//    if (aSelector == @selector(test:)) {
-////        objc_msgSend([[Cat alloc] init], aSelector);
-////        return [[Cat alloc] init];
-//        return [[Cat alloc] init];
+//- (id)forwardingTargetForSelector:(SEL)aSelector {
+//    if (aSelector == @selector(doSomething)) {
+//        return [[TAY alloc] init];
 //    }
 //    return [super forwardingTargetForSelector:aSelector];
 //}
 //
-//- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
-//    if (aSelector == @selector(test:)) {
-//        //如果这里是nil，就报错
-//        return [NSMethodSignature signatureWithObjCTypes:"i20@0:8i16"];
-//    }
-//    return [super methodSignatureForSelector:aSelector];
-//}
-//
-//- (void)forwardInvocation:(NSInvocation *)anInvocation {
-//
-////    int age;
-////    //参数顺序：receiver，selector，other arguments
-////    [anInvocation getArgument:&age atIndex:2];
-////    NSLog(@"%d", age + 10);
-//
-////    anInvocation.target == person对象
-////    anInvocation.selector == test:
-////    anInvocation的参数：receiver, selector, 15
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    if (aSelector == @selector(doSomething)) {
+        //如果这里是nil，就报错
+        return [NSMethodSignature signatureWithObjCTypes:"i20@0:8i16"];
+    }
+    return [super methodSignatureForSelector:aSelector];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+
+//    int age;
+//    //参数顺序：receiver，selector，other arguments
+//    [anInvocation getArgument:&age atIndex:2];
+//    NSLog(@"%d", age + 10);
+
+//    anInvocation.target == person对象
+//    anInvocation.selector == test:
+//    anInvocation的参数：receiver, selector, 15
+//    [anInvocation invokeWithTarget:[[TAY alloc] init]];
 //    [anInvocation invokeWithTarget:[[Cat alloc] init]];
-//
-//    int ret;
-//    [anInvocation getReturnValue:&ret];
-//    NSLog(@"%d", ret);
-//
-////    [anInvocation invokeWithTarget:[[Cat alloc] init]];
-////    NSLog(@"123");
-////    (什么都不做)
-//
-//}
+//    NSLog(@"123");
+//    (什么都不做)
+
+}
 
 //+ (BOOL)isKindOfClass:(Class)cls {
 //    for(Class tcls = object_getClass((id)self); tcls; tcls = tcls.superclass) {
@@ -118,11 +114,6 @@
 
 - (void)run {
     NSLog(@"%s", __func__);
-}
-
-
-+ (Class)superClass {
-    return self -> isa;
 }
 
 
